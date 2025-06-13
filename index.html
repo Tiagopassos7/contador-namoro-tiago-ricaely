@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Contador de Namoro – Tiago & Ricaely</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+  body, html { margin:0; padding:0; height:100%; overflow:hidden; }
+  body { 
+    background: url('IMG_20250517_185947_510.webp') center/cover no-repeat;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  }
+  .overlay {
+    position: absolute;top:0;left:0;width:100%;height:100%;
+    background: rgba(0,0,0,0.4);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 20px;
+  }
+  h1 { font-size: 3em; margin-bottom:0.3em; }
+  #contador { font-size: 2em; margin: 20px 0; }
+  p { font-size: 1.3em; max-width: 500px; }
+</style>
+</head>
+<body>
+<div class="overlay">
+  <h1>💖 Tiago & Ricaely 💖</h1>
+  <div id="contador">Carregando contador...</div>
+  <p>“Desde que nossos caminhos se cruzaram, tudo ganhou um novo sentido. Não são só os dias que passam — são os momentos, os sorrisos e os sonhos que compartilhamos. Cada batida do relógio é mais um segundo de amor crescendo entre a gente. Tiago & Ricaely, duas metades que escolheram caminhar juntas, um amor que conta o tempo… não em horas, mas em sentimentos.”</p>
+</div>
+
+<audio id="musica" src="musica.mp3" autoplay loop></audio>
+
+<script>
+// Data de início
+const inicio = new Date(2025, 0, 18); // Janeiro é mês 0
+const cont = document.getElementById('contador');
+
+function atualizar() {
+  const agora = new Date();
+  let diff = agora - inicio;
+
+  const segs = Math.floor(diff / 1000);
+  const mins = Math.floor(segs / 60);
+  const horas = Math.floor(mins / 60);
+  const dias = Math.floor(horas / 24);
+  const semanas = Math.floor(dias / 7);
+  const meses = Math.floor(dias / 30.44);
+
+  cont.textContent = `${meses} meses, ${semanas} semanas, ${dias} dias`;
+}
+setInterval(atualizar, 1000);
+atualizar();
+</script>
+</body>
+</html>
